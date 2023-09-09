@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keysecret = "ALEXGODMANHOLASENORITA123";
+const keysecret = process.env.KEYSECRET;
 
 //name, email, password, phone, bio, ipDetails, tokens, timestamps, role
 const userSchema = new mongoose.Schema({

@@ -1,6 +1,6 @@
 const User = require("./../models/userModel");
 const jwt = require("jsonwebtoken");
-const keysecret = "ALEXGODMANHOLASENORITA123";
+const keysecret = process.env.KEYSECRET;
 
 //auth user
 exports.isAuthUser = async (req, res, next) => {
