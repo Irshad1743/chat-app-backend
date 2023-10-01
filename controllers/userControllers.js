@@ -32,7 +32,9 @@ exports.loginUser = async (req, res) => {
             console.log(emailExists);
             const matchedPassword = await bcrypt.compare(password, emailExists.password);
             if(matchedPassword) {
+                console.log("HI MAXANA")
                 const token = await emailExists.generateToken();
+                console.log("HI MAXANA TK", token)
                 res.cookie("tokenCookie", token, {expires: new Date( Date.now() + 1 * 24 * 60 * 60 * 1000 ), withCredentials: true, httpOnly: false });
                 res.status(201).json({message: { token, emailExists, message: "User logged in successfully" }});
             } else {
@@ -42,6 +44,7 @@ exports.loginUser = async (req, res) => {
             res.status(422).json({ error: "Email does not exists in our database" })
         }
     } catch (err) {
+        console.log("HI MAXANA ERR", err)
         res.status(422).json({ error: err.message });
     }
 }
