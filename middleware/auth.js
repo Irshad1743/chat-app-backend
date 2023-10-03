@@ -6,7 +6,10 @@ const keysecret = process.env.KEYSECRET;
 exports.isAuthUser = async (req, res, next) => {
     try {
 
-        const token = req.headers.authorization;
+        // const token = req.headers.authorization;
+        const token = req.cookies.tokenCookie;
+        console.log("WOnderful TokeN = ", token)
+        
        if(!token) {
             return res.status(422).json({ error: "Token not found in auth.js" })
         }
