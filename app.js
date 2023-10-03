@@ -8,9 +8,16 @@ const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-app.use(cors({
+// app.use(cors({
+//     credentials: true,
+//   }));
+app.use(
+  cors({
+    origin: ["https://ia-chat-application.web.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
-  }));
+  })
+);
 app.use(cookieParser());
 app.use(bodyParser.json({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }));
