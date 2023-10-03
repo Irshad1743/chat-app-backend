@@ -6,8 +6,8 @@ const keysecret = process.env.KEYSECRET;
 exports.isAuthUser = async (req, res, next) => {
     try {
 
-        // const token = req.headers.authorization;
-        const token = req.cookies.tokenCookie;
+        const token = req.headers.authorization;
+        // const token = req.cookies.tokenCookie;
         console.log("WOnderful TokeN = ", token)
         
        if(!token) {
