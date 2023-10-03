@@ -35,7 +35,7 @@ exports.loginUser = async (req, res) => {
                 console.log("HI MAXANA")
                 const token = await emailExists.generateToken();
                 console.log("HI MAXANA TK", token)
-                res.cookie("tokenCookie", token, {expires: new Date( Date.now() + 1 * 24 * 60 * 60 * 1000 ), withCredentials: true, httpOnly: true });
+                res.cookie("tokenCookie", token, {expires: new Date( Date.now() + 1 * 24 * 60 * 60 * 1000 ), withCredentials: true, httpOnly: false });
                 res.status(201).json({message: { token, emailExists, message: "User logged in successfully" }});
             } else {
                 res.status(422).json({ error: "Password does not match" })
