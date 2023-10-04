@@ -37,7 +37,21 @@ exports.loginUser = async (req, res) => {
                 console.log("HI MAXANA TK", token)
                 const twoMinutesFromNow = new Date();
                 twoMinutesFromNow.setTime(twoMinutesFromNow.getTime() + 120000);
-                res.cookie("tokenCookie", token, {expires: twoMinutesFromNow, httpOnly: false, credentials: true });
+                res.cookie("tokenCookie", token);
+                res.cookie("dummyone", "mclaren")
+                res.cookie("dummy", "HELLO FROM COOKIE", {
+                      maxAge: 30 * 24 * 60 * 60 * 1000,
+                      httpOnly: true,
+                      sameSite: 'strict',
+                      withCredentials: true
+                });
+                res.cookie("dummy", "HELLO FROM COOKIE with remove samesite", {
+                      maxAge: 30 * 24 * 60 * 60 * 1000,
+                      httpOnly: true,
+                      withCredentials: true
+                });
+                res.cookie("token", "MCTOKEN").send({ Status: "Success", "MCTOKEN", "HOLA" });
+                // res.cookie("tokenCookie", token, {expires: twoMinutesFromNow, httpOnly: true, credentials: true });
                 // res.cookie("tokenCookie", token, {
                 //   withCredentials: true,
                 //   httpOnly: false,
