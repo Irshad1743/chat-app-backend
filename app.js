@@ -13,8 +13,7 @@ const app = express();
 //   }));
 app.use(
   cors({
-    origin: ["https://ia-chat-application.web.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: "https://ia-chat-application.web.app",
     credentials: true,
   })
 );
