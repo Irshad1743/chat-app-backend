@@ -50,7 +50,7 @@ exports.loginUser = async (req, res) => {
                       httpOnly: true,
                       withCredentials: true
                 });
-                res.cookie("token", "MCTOKEN").send({ Status: "Success", "MCTOKEN", "HOLA" });
+                // res.cookie("token", "MCTOKEN").send({ Status: "Success", "MCTOKEN", "HOLA" });
                 // res.cookie("tokenCookie", token, {expires: twoMinutesFromNow, httpOnly: true, credentials: true });
                 // res.cookie("tokenCookie", token, {
                 //   withCredentials: true,
